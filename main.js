@@ -26,11 +26,6 @@
       console.log(response);
     });
   }
-    //stock ticker and quantity, make getJSON call
-    //calls makeStockUrl
-    //call display
-    //append to body
-
 
   function getStockSymbol() {
     return $('.symbol').val();
