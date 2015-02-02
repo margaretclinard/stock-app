@@ -21,14 +21,12 @@ function getStockSymbol() {
 (function(){
   'use strict';
 
- // var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + input + '&callback=?';
+  var $body;
+  
 
   $(document).ready(function(){
     $('#submit').click(getStock);
   });
-
-
-
 
   function makeStockUrl() {
     var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
@@ -41,10 +39,11 @@ function getStockSymbol() {
   function getStock(){
     var url = makeStockUrl();
     $.getJSON(url, function (response) {
+      display(response);
       console.log(response);
     });
   }
-//stock ticker and quantity, make getJSON call
+    //stock ticker and quantity, make getJSON call
     //calls makeStockUrl
     //call display
     //append to body
@@ -55,24 +54,42 @@ function getStockSymbol() {
     //$
   }
 
-  function display(stocks){
-    var stockList = [];
+  function display(stock){
 
-    _.forEach(array, function(quotes){
-      var $tr = $('<tr></tr>');
-    });
+    var priceChange = Math.round(stock.Change*100)/100;
+    var percentChange = Math.round(stock.ChangePercent*100)/100;
+    var quantityVal = $('.quantity').val();
 
-    _.forEach(quotes, function(quote){
-      var $td = $('<td>' + company + '</td>');
-      var $td = $('<td>' + price + '</td>');
-      var $td = $('<td>' + quantity + '</td>');
-      var $td = $('<td>' + dayPrice + '</td>');
-      var $td = $('<td>' + percentageChange + '</td>');
+    
+    })
+    var $tr = $('<tr></tr>');
 
-      $tr.append($td);
-    });
+    var $tdCompany = $('<td></td>');
+    $tdCompany.text(stock.Name);
+    $tr.append($tdCompany);
 
-   stockList.push($tr);
+    var $tdPrice = $('<td></td>');
+    $tdPrice.text(stock.LastPrice);
+    $tr.append($tdPrice);
+
+    var $tdQuantity = $('<td></td>');
+    $tdPrice.text(quantityVal);
+    $tr.append($tdQuantity);
+
+    var $tdDayPrice = $('<td></td>');
+    $tdDayPrice.text(priceChange);
+    $tr.append($tdDayPrice);
+
+    var $tdPercent = $('<td></td>');
+    $tdDayPrice.text(percentChange + "%");
+    $tr.append($tdPercent);
+
+    var $trRemoveButton = $('<td><button>Remove</button></td>');
+    $trRemoveButton.on("click", function(){
+    	$tr.empty();
+
+    $('#target').append($tr);
+
   }
 
 })();
