@@ -6,10 +6,10 @@ $.getJSON(url, function (response) {
 });
 
 function getStock() {
-  var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
-      urlEnd = '&callback=?',
+  var baseUrl     = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
+      urlEnd      = '&callback=?',
       stockSymbol = getStockSymbol(),
-      url = baseUrl + stockSymbol + urlEnd;
+      url         = baseUrl + stockSymbol + urlEnd;
   return url;
 }
 
