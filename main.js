@@ -6,6 +6,9 @@
 
   $(document).ready(function(){
     $('#submit').click(getStock);
+    $('table').on("click", '.remove', function(){
+    $(this).parent().parent().remove();
+    });
   });
 
   function makeStockUrl() {
@@ -60,6 +63,10 @@
     var $tdPercent = $('<td></td>');
     $tdPercent.text(percentChange + "%");
     $tr.append($tdPercent);
+
+    var $removeButton = $('<td><button class="remove">Remove</button></td>');
+    $tr.append($removeButton);
+
 
     $('#target').append($tr);
 
