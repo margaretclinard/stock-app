@@ -50,7 +50,7 @@
     $tr.append($tdPrice);
 
     var $tdQuantity = $('<td></td>');
-    $tdPrice.text(quantityVal);
+    $tdQuantity.text(quantityVal);
     $tr.append($tdQuantity);
 
     var $tdDayPrice = $('<td></td>');
@@ -58,7 +58,7 @@
     $tr.append($tdDayPrice);
 
     var $tdPercent = $('<td></td>');
-    $tdDayPrice.text(percentChange + "%");
+    $tdPercent.text(percentChange + "%");
     $tr.append($tdPercent);
 
     $('#target').append($tr);

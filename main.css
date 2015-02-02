@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,500,300,700,400);
+
+body{
+  display: table;
+  width: 100%;
+ /* background: #dedede;*/
+  text-align: center;
+  /*background: #2889e5;*/
+  background-image: url('https://0.s3.envato.com/files/66423679/Stock%20Market_background_071.jpg') 
+
+}
+*{ 
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+h1{
+  font:100 5rem/1 Roboto;
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fff;
+}
+table{
+   box-shadow: 0px 0px 30px #fff;
+}
+table,thead,tbody,tr,td,th{
+  text-align: center;
+  margin: auto;
+  border:2px solid #2371d0;
+  padding: 20px;
+  width: 60%;
+  background: #fff;
+}
+
+
