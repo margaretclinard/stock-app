@@ -2,7 +2,7 @@
   'use strict';
 
   var $body;
-  
+
 
   $(document).ready(function(){
     $('#submit').click(getStock);
@@ -34,7 +34,11 @@
 
   function getStockSymbol() {
     return $('.symbol').val();
-    //$
+  }
+
+  function displayTotal(total){
+    var $p = $('<p></p>');
+    $('.total').append($p);
   }
 
   function display(stock){
@@ -49,7 +53,7 @@
     $tr.append($tdCompany);
 
     var $tdPrice = $('<td></td>');
-    $tdPrice.text(stock.LastPrice);
+    $tdPrice.text('$' + stock.LastPrice);
     $tr.append($tdPrice);
 
     var $tdQuantity = $('<td></td>');
