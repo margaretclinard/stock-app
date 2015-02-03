@@ -10,7 +10,6 @@
       var price = $tr.children('.price').text().substr(1);
       var qty = $tr.children('.quantity').text();
       var salePrice = price * qty * -1;
-      console.log('price', price, 'qty', qty, 'salePrice', salePrice);
       currentTotal(salePrice);
       $tr.remove();
     });
