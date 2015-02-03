@@ -2,6 +2,8 @@
   'use strict';
 
   var $body;
+  var $total = 0;
+  var $numTotal;
   
 
   $(document).ready(function(){
@@ -41,6 +43,10 @@
     var priceChange = Math.round(stock.Change*100)/100;
     var percentChange = Math.round(stock.ChangePercent*100)/100;
     var quantityVal = $('.quantity').val();
+    $total = $total + (quantityVal * (stock.LastPrice));
+    $total = Math.round($total*100)/100;
+    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>')
+
     var $tr = $('<tr></tr>');
 
     var $tdCompany = $('<td></td>');
@@ -68,6 +74,7 @@
 
 
     $('#target').append($tr);
+    $('#totalVal').empty().append($numTotal);
 
   }
 
