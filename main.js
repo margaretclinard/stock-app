@@ -44,7 +44,7 @@
     var quantityVal = $('.quantity').val();
     $total = $total + (quantityVal * (stock.LastPrice));
     $total = Math.round($total*100)/100;
-    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>')
+    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>');
 
     var $tr = $('<tr></tr>');
 
