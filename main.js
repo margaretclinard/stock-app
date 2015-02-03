@@ -21,21 +21,21 @@
   }
 
   function getStock(){
-  	if($('.symbol').val() === ""){
+    if($('.symbol').val() === ""){
       alert("Dude. Really? I can't even....");
     }else{
-      var url = makeStockUrl();
-      $.getJSON(url, function (response) {
-        display(response);
-        console.log(response);
-      });
+        var url = makeStockUrl();
+        $.getJSON(url, function (response) {
+          display(response);
+          console.log(response);
+        });
     }
-   	clear();
+    clear();
   }
 
   function clear(){
-  	$('input.symbol')[0].value = "";
-  	$('input.quantity')[0].value = "";
+    $('input.symbol')[0].value = "";
+    $('input.quantity').value = "";
   }
 
   function display(stock){
