@@ -14,10 +14,10 @@
   });
 
   function makeStockUrl() {
-    var baseUrl = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
-        urlEnd = '&callback=?',
+    var baseUrl     = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
+        urlEnd      = '&callback=?',
         stockSymbol = getStockSymbol(),
-        url = baseUrl + stockSymbol + urlEnd;
+        url         = baseUrl + stockSymbol + urlEnd;
     return url;
   }
 
@@ -40,12 +40,12 @@
 
   function display(stock){
 
-    var priceChange = Math.round(stock.Change*100)/100;
+    var priceChange   = Math.round(stock.Change*100)/100;
     var percentChange = Math.round(stock.ChangePercent*100)/100;
-    var quantityVal = $('.quantity').val();
-    $total = $total + (quantityVal * (stock.LastPrice));
-    $total = Math.round($total*100)/100;
-    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>')
+    var quantityVal   = $('.quantity').val();
+    $total            = $total + (quantityVal * (stock.LastPrice));
+    $total            = Math.round($total*100)/100;
+    $numTotal         = $('<h3> TOTAL: $' + $total +  '</h3>')
 
     var $tr = $('<tr></tr>');
 
@@ -54,7 +54,7 @@
     $tr.append($tdCompany);
 
     var $tdPrice = $('<td></td>');
-    $tdPrice.text(stock.LastPrice);
+    $tdPrice.text("$" + stock.LastPrice);
     $tr.append($tdPrice);
 
     var $tdQuantity = $('<td></td>');
@@ -62,7 +62,7 @@
     $tr.append($tdQuantity);
 
     var $tdDayPrice = $('<td></td>');
-    $tdDayPrice.text(priceChange);
+    $tdDayPrice.text("$" + priceChange);
     $tr.append($tdDayPrice);
 
     var $tdPercent = $('<td></td>');
