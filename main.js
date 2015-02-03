@@ -55,6 +55,10 @@
     $tdQuantity.text(quantityVal);
     $tr.append($tdQuantity);
 
+    var $tdCurrPrice = $('<td></td>');
+    $tdCurrPrice.text('$' + stock.LastPrice);
+    $tr.append($tdCurrPrice);
+
     var $tdDayPrice = $('<td></td>');
     $tdDayPrice.text(priceChange);
     $tr.append($tdDayPrice);
