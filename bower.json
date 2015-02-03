@@ -1,0 +1,12 @@
+{
+  "name": "stock-app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/margaretclinard/stock-app",
+  "authors": [
+    "Margaret Clinard <margaret.clinard@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation#~5.5.1"
+  }
+}

@@ -4,7 +4,6 @@
   var $body;
   var $total = 0;
   var $numTotal;
-  
 
   $(document).ready(function(){
     $('#submit').click(getStock);
@@ -28,11 +27,6 @@
       console.log(response);
     });
   }
-    //stock ticker and quantity, make getJSON call
-    //calls makeStockUrl
-    //call display
-    //append to body
-
 
   function getStockSymbol() {
     return $('.symbol').val();
@@ -45,7 +39,7 @@
     var quantityVal   = $('.quantity').val();
     $total            = $total + (quantityVal * (stock.LastPrice));
     $total            = Math.round($total*100)/100;
-    $numTotal         = $('<h3> TOTAL: $' + $total +  '</h3>')
+    $numTotal         = $('<h3> TOTAL: $' + $total +  '</h3>');
 
     var $tr = $('<tr></tr>');
 
