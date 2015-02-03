@@ -7,8 +7,10 @@
     $('#submit').click(getStock);
     $('table').on("click", '.remove', function(){
       var $tr = $(this).parent().parent();
-      var salePrice = $tr.children('.price').val() * $tr.children('.quantity').val() * -1;
-      console.log(salePrice);
+      var price = $tr.children('.price').text().substr(1);
+      var qty = $tr.children('.quantity').text();
+      var salePrice = price * qty * -1;
+      console.log('price', price, 'qty', qty, 'salePrice', salePrice);
       currentTotal(salePrice);
       $tr.remove();
     });
