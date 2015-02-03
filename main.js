@@ -2,7 +2,8 @@
   'use strict';
 
   var $body;
-
+  var $total = 0;
+  var $numTotal;
 
   $(document).ready(function(){
     $('#submit').click(getStock);
@@ -29,14 +30,11 @@
 
   function getStockSymbol() {
     return $('.symbol').val();
-<<<<<<< HEAD
   }
 
   function displayTotal(total){
     var $p = $('<p></p>');
     $('.total').append($p);
-=======
->>>>>>> da975c5ceec7b1235bf63f66192c9fa557c91116
   }
 
   function display(stock){
@@ -44,6 +42,10 @@
     var priceChange = Math.round(stock.Change*100)/100;
     var percentChange = Math.round(stock.ChangePercent*100)/100;
     var quantityVal = $('.quantity').val();
+    $total = $total + (quantityVal * (stock.LastPrice));
+    $total = Math.round($total*100)/100;
+    $numTotal = $('<h2> TOTAL: $' + $total +  '</h2>')
+
     var $tr = $('<tr></tr>');
 
     var $tdCompany = $('<td></td>');
@@ -71,6 +73,7 @@
 
 
     $('#target').append($tr);
+    $('#totalVal').empty().append($numTotal);
 
   }
 
