@@ -5,7 +5,7 @@
   var $total = 0;
   var $numTotal;
 
-  $(document).ready(function(){
+  $(document).ready(function(evt){
     $('#submit').click(getStock);
     $('table').on("click", '.remove', function(){
     $(this).parent().parent().remove();
@@ -15,21 +15,27 @@
   function makeStockUrl() {
     var baseUrl     = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=',
         urlEnd      = '&callback=?',
-        stockSymbol = getStockSymbol(),
+        stockSymbol = $('.symbol').val(),
         url         = baseUrl + stockSymbol + urlEnd;
     return url;
   }
 
   function getStock(){
-    var url = makeStockUrl();
-    $.getJSON(url, function (response) {
-      display(response);
-      console.log(response);
-    });
+  	if($('.symbol').val() === ""){
+      alert("Dude. Really? I can't even....");
+    }else{
+      var url = makeStockUrl();
+      $.getJSON(url, function (response) {
+        display(response);
+        console.log(response);
+      });
+    }
+   	clear();
   }
 
-  function getStockSymbol() {
-    return $('.symbol').val();
+  function clear(){
+  	$('input.symbol')[0].value = "";
+  	$('input.quantity')[0].value = "";
   }
 
   function display(stock){
