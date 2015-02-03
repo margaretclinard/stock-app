@@ -38,4 +38,7 @@ table,thead,tbody,tr,td,th{
   background: #fff;
 }
 
-
+.symbol {
+  height: 20px;
+  width: 50px;
+}

@@ -34,7 +34,6 @@
 
   function getStockSymbol() {
     return $('.symbol').val();
-    //$
   }
 
   function display(stock){
