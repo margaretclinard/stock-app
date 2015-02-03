@@ -29,11 +29,14 @@
 
   function getStockSymbol() {
     return $('.symbol').val();
+<<<<<<< HEAD
   }
 
   function displayTotal(total){
     var $p = $('<p></p>');
     $('.total').append($p);
+=======
+>>>>>>> da975c5ceec7b1235bf63f66192c9fa557c91116
   }
 
   function display(stock){

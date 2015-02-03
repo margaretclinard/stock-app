@@ -2,31 +2,40 @@
 <html>
   <head>
     <title>Stock App</title>
+    <link rel="stylesheet" href="./bower_components/foundation/css/foundation.css">
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <h1>STOCK APP</h1>
-    <div class="nav">
-      <form>
-        <input type="text" class="symbol" placeholder="Enter Stock Symbol">
-        <input type="text" class="quantity" placeholder="Enter Quantity">
-        <button id="submit" type="button">Submit</button>
-      </form>
+      <div>
+        <form>
+          <div class="row">
+            <div class="large-5 columns">
+              <input type="text" class="symbol" placeholder="Enter Stock Symbol">
+            </div>
+            <div class="large-5 columns">
+              <input type="text" class="quantity" placeholder="Enter Quantity">
+           </div>
+            <div class="large-2 columns">
+              <button id="submit" class="button" type="button">Submit</button>
+            </div>
+          </div>
+        </form>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Purchase Price</th>
-          <th>Quantity</th>
-          <th>Price Change</th>
-          <th>Percent Change</th>
-        </tr>
-      </thead>
-      <tbody id='target'></tbody>
-    </table>
-    <div class="total">
-      <p>Total:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Purchase Price</th>
+        <th>Quantity</th>
+        <th>Price Change</th>
+        <th>Percent Change</th>
+      </tr>
+    </thead>
+
+    <tbody id='target'></tbody>
+  </table>
     </div>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="main.js"></script>
