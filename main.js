@@ -32,11 +32,6 @@
     return $('.symbol').val();
   }
 
-  function displayTotal(total){
-    var $p = $('<p></p>');
-    $('.total').append($p);
-  }
-
   function display(stock){
 
     var priceChange = Math.round(stock.Change*100)/100;
