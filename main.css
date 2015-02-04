@@ -38,3 +38,11 @@ table,thead,tbody,tr,td,th{
 #totalVal {
   background-color: #fff;
 }
+
+.button {
+  background-color: green;
+}
+
+.remove {
+  background-color: red;
+}
