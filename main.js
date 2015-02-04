@@ -2,10 +2,11 @@
   'use strict';
 
   var total = 0;
+  var $refreshButton = $('.refresh');
 
   $(document).ready(function(evt){
     $('#submit').click(getStock);
-    $('table').on("click", '.remove', function(){
+    $('table').on('click', '.remove', function(){
       var $tr = $(this).parent().parent();
       var price = $tr.children('.price').text().substr(1);
       var qty = $tr.children('.quantity').text();
@@ -13,6 +14,12 @@
       currentTotal(salePrice);
       $tr.remove();
     });
+  });
+
+  $refreshButton.on('click', function(evt){
+    evt.preventDefault();
+    console.log(evt);
+    refreshCurrPrice();
   });
 
   function makeStockUrl() {
@@ -57,9 +64,9 @@
     var percentChange = Math.round(stock.ChangePercent*100)/100;
     var quantityVal   = $('.quantity1').val();
 
-    var $tr = $('<tr></tr>');
+    var $tr = $('<tr class="tableRow"></tr>');
 
-    var $tdCompany = $('<td></td>');
+    var $tdCompany = $('<td class="name"></td>');
     $tdCompany.text(stock.Name);
     $tr.append($tdCompany);
 
@@ -71,7 +78,7 @@
     $tdQuantity.text(quantityVal);
     $tr.append($tdQuantity);
 
-    var $tdCurrPrice = $('<td></td>');
+    var $tdCurrPrice = $('<td class="currentPrice"></td>');
     $tdCurrPrice.text('$' + stock.LastPrice);
     $tr.append($tdCurrPrice);
 
@@ -92,5 +99,25 @@
     $('#target').append($tr);
 
   }
+
+  function refreshCurrPrice(){
+    var $tr = $('.tableRow');
+
+    _.forEach($tr, function(n){
+      var row = $(n);
+      var foundName = row.find('.name')[0].innerHTML;
+      var url = 'http://dev.markitondemand.com/Api/v2/Lookup/jsonp?input=' + foundName + '&callback=?';
+
+      $.getJSON(url, function(currPrice){
+        var ticker = currPrice[0].Symbol;
+
+        var urlSymbol = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + ticker + '&callback=?';
+
+        $.getJSON(urlSymbol, function(res){
+          row.find('.currentPrice')[0].innerHTML = parseFloat(res.LastPrice);
+        });
+      });
+    });
+   }
 
 })();
